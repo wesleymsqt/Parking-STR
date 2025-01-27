@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Estacionamento</title>
+    <!-- Link para o CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Monitor de Estacionamento</a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row">
+            <!-- Coluna para exibir o status do estacionamento -->
+            <div class="col-md-6">
+                <h3 class="mb-4">Status do Estacionamento</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Vaga</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Linha para vaga 1, disponível -->
+                        <tr>
+                            <td>1</td>
+                            <td><span class="badge bg-success">Disponível</span></td>
+                        </tr>
+                        <!-- Linha para vaga 2, ocupada -->
+                        <tr>
+                            <td>2</td>
+                            <td><span class="badge bg-danger">Ocupada</span></td>
+                        </tr>
+                        <!-- Linha para vaga 3, disponível -->
+                        <tr>
+                            <td>3</td>
+                            <td><span class="badge bg-success">Disponível</span></td>
+                        </tr>
+                        <!-- Linha para vaga 4, ocupada -->
+                        <tr>
+                            <td>4</td>
+                            <td><span class="badge bg-danger">Ocupada</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Coluna para adicionar/remover veículos -->
+            <div class="col-md-6">
+                <h3 class="mb-4">Adicionar/Remover Veículos</h3>
+                <form id="parkingForm">
+                    <div class="row align-items-end">
+                        <!-- Campo para número da vaga -->
+                        <div class="col-md-4 mb-3">
+                            <label for="slot" class="form-label">Número da Vaga</label>
+                            <input type="number" class="form-control" id="slot" placeholder="Digite o número da vaga">
+                        </div>
+                        <!-- Campo para selecionar o status -->
+                        <div class="col-md-4 mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select id="status" class="form-select">
+                                <option value="available">Disponível</option>
+                                <option value="occupied">Ocupada</option>
+                            </select>
+                        </div>
+                        <!-- Botão Atualizar -->
+                        <div class="col-md-4 mb-3">
+                            <button type="submit" class="btn btn-primary w-100">Atualizar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link para o JS do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Adiciona o evento de submit no formulário
+        document.getElementById('parkingForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita o comportamento padrão de envio do formulário
+
+            // Obtém os valores inseridos no formulário
+            const slot = document.getElementById('slot').value;
+            const status = document.getElementById('status').value;
+            const table = document.querySelector('table tbody');
+
+            // Encontra a linha da vaga correspondente ao número inserido
+            const row = table.querySelector(`tr:nth-child(${slot})`);
+
+            // Se a linha da vaga for encontrada, atualiza o status
+            if (row) {
+                const badge = row.querySelector('td:nth-child(2) .badge');
+                // Altera a classe da badge e o texto de acordo com o status
+                badge.className = status === 'available' ? 'badge bg-success' : 'badge bg-danger';
+                badge.textContent = status.charAt(0).toUpperCase() + status.slice(1); // Capitaliza a primeira letra
+            } else {
+                alert('Número de vaga inválido'); // Exibe um alerta se o número da vaga for inválido
+            }
+        });
+    </script>
+</body>
+</html>
