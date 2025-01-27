@@ -9,3 +9,22 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+// ALTERNANR O ESTADO DAS VAGAS 
+function toggleStatus(button) {
+    const card = button.parentElement;
+    const counter = document.getElementById('available-spaces');
+    let availableSpaces = parseInt(counter.textContent);
+
+    if (card.classList.contains('bg-success')) {
+        card.classList.remove('bg-success');
+        card.classList.add('bg-danger');
+        button.textContent = 'OCUPADO';
+        counter.textContent = availableSpaces - 1;
+    } else {
+        card.classList.remove('bg-danger');
+        card.classList.add('bg-success');
+        button.textContent = 'DISPONIVEL';
+        counter.textContent = availableSpaces + 1;
+    }
+}
