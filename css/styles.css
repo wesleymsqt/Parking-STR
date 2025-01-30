@@ -1,0 +1,117 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+/* Estilo do Título Principal */
+h1 {
+    font-size: 1.8rem;
+    font-weight: 900; 
+    margin-bottom: 20px;
+}
+
+/* Estilo do Subtítulo */
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700; 
+}
+h3 {
+    font-size: 1.1rem;
+    font-weight: 900; 
+    margin-bottom: 3px;
+}
+
+.m {
+    text-transform: uppercase;
+}
+.m-b {
+    text-transform: uppercase;
+    font-size: 0.81rem;
+    font-weight: 800; 
+}
+
+/* TAMANHO DA IMAGEM */
+.slot {
+    width: 100px;
+    height: 100px;
+}
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+/* Estilo para o menu lateral */
+#sidebar {
+    position: fixed; /* Fixa o menu na lateral da tela */
+    top: 0;
+    left: -250px; /* Esconde o menu fora da tela por padrão */
+    width: 250px; /* Largura do menu */
+    height: 100%; /* Altura total da tela */
+    background: #5f99f1; /* Cor de fundo do menu */
+    color: white; /* Cor do texto */
+    transition: left 0.3s ease; /* Animação suave ao abrir/fechar */
+    overflow-y: auto; /* Permite rolagem vertical */
+
+    text-transform: uppercase;
+    font-size: 1.0rem;
+    font-weight: 800; 
+}
+
+/* Estilo quando o menu está ativo/aberto */
+#sidebar.active {
+    left: 0;
+}
+
+/* Estilo dos links no menu lateral */
+#sidebar .nav-link {
+    color: white;
+}
+
+/* Cor de fundo ao passar o mouse sobre os links */
+#sidebar .nav-link:hover {
+    background: #0d6efd;
+}
+
+/* Área principal do conteúdo */
+#content {
+    margin-left: 0; /* Alinhamento padrão com o menu fechado */
+    transition: margin-left 0.3s ease; /* Animação suave ao ajustar o conteúdo */
+}
+
+/* Estilo quando o menu está ativo/aberto */
+#content.active {
+    margin-left: 250px;
+}
+
+/* Botão de alternância do menu lateral */
+#sidebarToggle {
+    z-index: 1050; /* Garante que o botão fique acima do menu lateral */
+    margin-right: 10px; /* Espaçamento entre o botão e a logo */
+}
+
+/* Barra de navegação superior */
+.navbar {
+    z-index: 1100; /* Garante que a barra superior esteja acima do menu lateral */
+}
+
+/* CONTAINER DA TABELA */
+.table-container{
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 40%;
+    transition: background-color 0.3s ease-in-out;
+    font-style: italic;
+}
+th {
+    border: 3px dotted #0d6efd !important;
+}
+td {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: dotted;
+    border: 2px dotted #000 !important;
+}
+td:hover {
+    background-color: #d1e7fd;
+}

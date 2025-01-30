@@ -6,117 +6,15 @@
     <link rel="icon" href="assets/favicon.webp" type="image/x-icon">
     <title>Estacionamento</title>
 
-    <!-- LINK Bootstrap CSS -->
+    <!-- LINK Bootstrap e CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/styles.css">
     <!-- LINK LETRA ROBOTO -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- LINK ICONS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fi/fi@1.0.0/css/fi.min.css">
-
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-        /* Estilo do Título Principal */
-        h1 {
-            font-size: 1.8rem;
-            font-weight: 900; 
-            margin-bottom: 20px;
-        }
-
-        /* Estilo do Subtítulo */
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 700; 
-        }
-        h3 {
-            font-size: 1.1rem;
-            font-weight: 900; 
-            margin-bottom: 3px;
-        }
-
-        .m {
-            text-transform: uppercase;
-        }
-        .m-b {
-            text-transform: uppercase;
-            font-size: 0.81rem;
-            font-weight: 800; 
-        }
-
-        /* TAMANHO DA IMAGEM */
-        .slot {
-            width: 100px;
-            height: 100px;
-        }
-        .main-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
-        }
-
-        /* Estilo para o menu lateral */
-    #sidebar {
-        position: fixed; /* Fixa o menu na lateral da tela */
-        top: 0;
-        left: -250px; /* Esconde o menu fora da tela por padrão */
-        width: 250px; /* Largura do menu */
-        height: 100%; /* Altura total da tela */
-        background: #5f99f1; /* Cor de fundo do menu */
-        color: white; /* Cor do texto */
-        transition: left 0.3s ease; /* Animação suave ao abrir/fechar */
-        overflow-y: auto; /* Permite rolagem vertical */
-
-        text-transform: uppercase;
-        font-size: 1.0rem;
-        font-weight: 800; 
-    }
-
-    /* Estilo quando o menu está ativo/aberto */
-    #sidebar.active {
-      left: 0;
-    }
-
-    /* Estilo dos links no menu lateral */
-    #sidebar .nav-link {
-      color: white;
-    }
-
-    /* Cor de fundo ao passar o mouse sobre os links */
-    #sidebar .nav-link:hover {
-      background: #0d6efd;
-    }
-
-    /* Área principal do conteúdo */
-    #content {
-      margin-left: 0; /* Alinhamento padrão com o menu fechado */
-      transition: margin-left 0.3s ease; /* Animação suave ao ajustar o conteúdo */
-    }
-
-    /* Estilo quando o menu está ativo/aberto */
-    #content.active {
-      margin-left: 250px;
-    }
-
-    /* Botão de alternância do menu lateral */
-    #sidebarToggle {
-      z-index: 1050; /* Garante que o botão fique acima do menu lateral */
-      margin-right: 10px; /* Espaçamento entre o botão e a logo */
-    }
-
-    /* Barra de navegação superior */
-    .navbar {
-      z-index: 1100; /* Garante que a barra superior esteja acima do menu lateral */
-    }
-    
-    .tab-1{
-        border: white;
-    }
-
-    </style>
 </head>
 <body>
     <!-- Menu Superior -->
@@ -187,20 +85,16 @@
                 <div class="d-flex align-items-center gap-3">
                     <label for="slot" class="form-label mb-0"><h3>Escolha a vaga:</h3></label>
                     <select id="slot" class="form-select w-auto" required>
-                        <option value="" disabled selected></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
+                        <option value="" disabled selected>...</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
                     </select>
 
                     <label for="status" class="form-label mb-0"><h3>Status:</h3></label>
                     <select id="status" class="form-select w-auto m-b" required>
-                        <option value="escolha" disabled selected></option>
+                        <option value="escolha" disabled selected>...</option>
                         <option value="available">Disponível</option>
                         <option value="occupied">Ocupada</option>
                     </select>
@@ -211,56 +105,30 @@
 
             <!-- Tabela para exibição das vagas -->
              <!-- LINK NUMEROS GIF: https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2Fl0Ex9pftnvPgw0nPa%2Fgiphy.gif%3Fcid%3D6c09b952bskqfcob5lbwofosffhdbd2fvsixc4jswb9d7edv%26ep%3Dv1_internal_gif_by_id%26rid%3Dgiphy.gif%26ct%3Dg&tbnid=ynD-9ig9KwM2uM&vet=10CBcQxiAoBWoXChMIgLS82rGZiwMVAAAAAB0AAAAAEBs..i&imgrefurl=https%3A%2F%2Fgiphy.com%2Fgifs%2Fstudiosoriginals-numbers-gilphabet-l0Ex9pftnvPgw0nPa&docid=kEqUALc7EnOgAM&w=480&h=320&itg=1&q=number%205%20gif&ved=0CBcQxiAoBWoXChMIgLS82rGZiwMVAAAAAB0AAAAAEBs#imgrc=ynD-9ig9KwM2uM&imgdii=BPmoMSiOrDIpdM -->
-            <table class="table table-bordered text-center tab-1">
-                <tr>
-                    <td id="slot-1"><img class="slot" src="assets/img/numbers/g_1.gif" alt="Vaga vazia"></td>
-                    <td id="slot-2"><img class="slot" src="assets/img/numbers/g_2.gif" alt="Vaga vazia"></td>
-                </tr>
-                <tr>
-                    <td id="slot-3"><img class="slot" src="assets/img/numbers/g_3.gif" alt="Vaga vazia"></td>
-                    <td id="slot-4"><img class="slot" src="assets/img/numbers/g_4.gif" alt="Vaga vazia"></td>
-                </tr>
-                <tr>
-                    <td id="slot-5"><img class="slot" src="assets/img/numbers/g_5.gif" alt="Vaga vazia"></td>
-                    <td id="slot-6"><img class="slot" src="assets/img/numbers/g_6.gif" alt="Vaga vazia"></td>
-                </tr>
-                <tr>
-                    <td id="slot-7"><img class="slot" src="assets/img/numbers/g_7.gif" alt="Vaga vazia"></td>
-                    <td id="slot-8"><img class="slot" src="assets/img/numbers/g_8.gif" alt="Vaga vazia"></td>
-                </tr>
-            </table>
+            <div class="table-container">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th colspan="2">Vagas do Estacionamento</th>
+                    </tr>
+                    <tr>
+                        <td id="slot-1">01</td>
+                        <td id="slot-2">02</td>
+                    </tr>
+                    <tr>
+                        <td id="slot-3">03</td>
+                        <td id="slot-4">04</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
     <script>
-        // Seleciona os elementos principais
-        const sidebar = document.getElementById('sidebar');
-        const content = document.getElementById('content');
-        const toggleButton = document.getElementById('sidebarToggle');
-
-        // Adiciona o evento de clique ao botão de alternância
-        toggleButton.addEventListener('click', () => {
-        // Alterna a classe 'active' no menu lateral
-        sidebar.classList.toggle('active');
-        // Ajusta o conteúdo principal com base no estado do menu
-        content.classList.toggle('active');
-        });
-
-        // Função para atualizar o status de uma vaga
-        function updateSlot() {
-            const slotNumber = document.getElementById('slot').value;
-            const status = document.getElementById('status').value;
-            const slot = document.getElementById(`slot-${slotNumber}`);
-
-            if (status === 'occupied') {
-                slot.innerHTML = '<img class="slot" src="assets/img/busy.avif" alt="Carro estacionado">';
-            } else {
-                slot.innerHTML = '<img class="slot" src="assets/img/free.avif" alt="Vaga vazia">';
-            }
-        }
+        
     </script>
 
     <!-- LINK Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
